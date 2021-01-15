@@ -1,2 +1,2 @@
 # pollution-moniter
-A Android app to monitor pollution.
+An Android app to monitor pollution.
