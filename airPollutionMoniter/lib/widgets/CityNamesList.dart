@@ -1,4 +1,5 @@
 import 'package:airPollutionMoniter/providers/InfoProvider.dart';
+import 'package:airPollutionMoniter/widgets/TimingsList.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,13 +30,76 @@ class CityNamesList extends StatelessWidget {
                           .timingsList(cities[index]);
                   print(data);
                   showModalBottomSheet(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Container(
-                          height: 200,
-                          color: Colors.amber,
-                        );
-                      });
+                    context: context,
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    builder: (context) => ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: const Radius.circular(25.0),
+                        topRight: const Radius.circular(25.0),
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.7,
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          // borderRadius: BorderRadius.only(
+                          //   topLeft: const Radius.circular(25.0),
+                          //   topRight: const Radius.circular(25.0),
+                          // ),
+                        ),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 80,
+                              color: Colors.blue,
+                              child: Center(
+                                child: (data[0]["to"].toString().contains("("))
+                                    ? Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "${data[0]["from"]} >> TO >> ${data[0]["to"].toString().substring(0, data[0]["to"].toString().indexOf("("))}",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline6
+                                                .copyWith(
+                                                    color: Colors.white,
+                                                    fontSize: 18),
+                                          ),
+                                          Text(
+                                            "${data[0]["to"].toString().substring(data[0]["to"].toString().indexOf("("))}",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline6
+                                                .copyWith(
+                                                    color: Colors.white,
+                                                    fontSize: 18),
+                                          ),
+                                        ],
+                                      )
+                                    : Text(
+                                        "${data[0]["from"]} >> TO >> ${data[0]["to"]}",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline6
+                                            .copyWith(
+                                                color: Colors.white,
+                                                fontSize: 18),
+                                      ),
+                              ),
+                            ),
+                            Expanded(
+                                child: Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8.0, left: 8, right: 8),
+                              child: TimingsList(timingsList: data),
+                            )),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
                 },
                 child: Card(
                   margin: EdgeInsets.zero,
