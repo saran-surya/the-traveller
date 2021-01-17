@@ -1,2 +1,2 @@
-# pollution-moniter
-An Android app to monitor pollution.
+# The-Traveller
+An Android app to report the Timings of bus travel.
