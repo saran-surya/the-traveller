@@ -19,7 +19,9 @@ class TimingsList extends StatelessWidget {
           return Container(
             margin: const EdgeInsets.only(bottom: 8),
             height: (double.parse(timingsList[index]["no_of_service"]) > 8)
-                ? double.parse(timingsList[index]["no_of_service"]) * 12
+                ? MediaQuery.of(context).size.height *
+                    0.016 *
+                    double.parse(timingsList[index]["no_of_service"])
                 : 200,
             decoration: BoxDecoration(
               // color: Colors.pink[300],

@@ -14,7 +14,7 @@ class DrawerWidget extends StatelessWidget {
         child: Drawer(
           child: Container(
             margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.4),
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.45),
             child: Column(
               children: <Widget>[
                 Text(
@@ -30,6 +30,7 @@ class DrawerWidget extends StatelessWidget {
                     Navigator.of(context).pushNamed(AboutScreen.aboutPageRoute);
                   },
                   child: Container(
+                    color: Colors.amber,
                     width: 200,
                     padding: const EdgeInsets.all(8),
                     child: Center(
