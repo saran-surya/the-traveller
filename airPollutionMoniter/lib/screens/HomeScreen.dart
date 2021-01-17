@@ -1,6 +1,7 @@
 import 'package:airPollutionMoniter/providers/InfoProvider.dart';
 import 'package:airPollutionMoniter/widgets/CityNamesList.dart';
 import 'package:airPollutionMoniter/widgets/DrawerIcon.dart';
+import 'package:airPollutionMoniter/widgets/DrawerWidget.dart';
 import 'package:airPollutionMoniter/widgets/MainPageContainer.dart';
 import 'package:airPollutionMoniter/widgets/SearchWidget.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +19,7 @@ class HomePage extends StatelessWidget {
     final windowWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       key: _scaffoldKey,
-      drawer: Drawer(
-        child: Container(
-          color: Colors.grey,
-        ),
-      ),
+      drawer: DrawerWidget(),
       body: Stack(
         children: [
           // -----------------> main top image widget background

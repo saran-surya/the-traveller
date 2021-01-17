@@ -1,4 +1,5 @@
 import 'package:airPollutionMoniter/providers/InfoProvider.dart';
+import 'package:airPollutionMoniter/screens/AboutScreen.dart';
 import 'package:airPollutionMoniter/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           HomePage.homePageroute: (context) => HomePage(),
+          AboutScreen.aboutPageRoute: (context) => AboutScreen(),
         },
       ),
     );

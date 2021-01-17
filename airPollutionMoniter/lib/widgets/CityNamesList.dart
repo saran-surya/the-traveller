@@ -51,7 +51,7 @@ class CityNamesList extends StatelessWidget {
                           children: [
                             Container(
                               height: 80,
-                              color: Colors.blue,
+                              color: Colors.blue[600],
                               child: Center(
                                 child: (data[0]["to"].toString().contains("("))
                                     ? Column(
@@ -90,11 +90,12 @@ class CityNamesList extends StatelessWidget {
                               ),
                             ),
                             Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8.0, left: 8, right: 8),
-                              child: TimingsList(timingsList: data),
-                            )),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 8.0, left: 8, right: 8),
+                                child: TimingsList(timingsList: data),
+                              ),
+                            ),
                           ],
                         ),
                       ),
